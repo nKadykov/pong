@@ -4,7 +4,7 @@ Ball::Ball(float startX, float startY) {
 	m_Position.x = startX;
 	m_Position.y = startY;
 
-	m_BallShape.setSize(sf::Vector2f(10, 10));
+	m_BallShape.setSize(sf::Vector2f(20, 20));
 	m_BallShape.setPosition(m_Position);
 }
 

@@ -11,7 +11,7 @@ int main()
     sf::Time dt;
     sf::Event event;
     Ball myball(1280, 2.0);
-    Paddle myPaddle(1280 / 2, 715);
+    Paddle myPaddle(1280 / 2, 710);
 
     while (window.isOpen()) {
         dt = clock.restart();
