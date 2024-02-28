@@ -39,3 +39,7 @@ void Ball::update(sf::Time dt) {
 	
 	m_BallShape.setPosition(m_Position);
 }
+
+void Ball::hitBall() {
+	m_DirectionY = -m_DirectionY;
+}

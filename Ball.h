@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
 class Ball
 {
 	sf::Vector2f m_Position;
