@@ -22,13 +22,13 @@ void Game::Start(sf::RenderWindow& window) {
     sf::Clock clock;
     sf::Time dt;
     sf::Event event;
-    Ball my_ball(1280 / 2, 2.0);
+    Ball my_ball(1280 / 2, 10.0);
     Paddle my_paddle(1280 / 2, 705);
 
     while (window.isOpen() && game_state == GameState::ON) {
         dt = clock.restart();
 
-        if (my_ball.getPosition().intersects(my_paddle.getPosition())) {
+        if (my_ball.getPosition().intersects(my_paddle.getPosition()) && (my_ball.getPosition().top + my_ball.getPosition().width > my_paddle.getPosition().top)) {
             my_ball.hitBall();
         }
 
