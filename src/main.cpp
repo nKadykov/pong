@@ -62,6 +62,9 @@ int main()
             state = State::GAMEOVER;
             game.setState(GameState::ON);
         }
+        if (button_state == ButtonState::CLOSE) {
+            window.close();
+        }
 
         switch (state) {
             case State::GAME:
