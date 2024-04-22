@@ -1,45 +1,43 @@
-#include "Ball.h"
+#include "ball.h"
 
 Ball::Ball(float startX, float startY) {
-	m_Position.x = startX;
-	m_Position.y = startY;
+	m_position.x = startX;
+	m_position.y = startY;
 
-	m_BallShape.setSize(sf::Vector2f(20, 20));
-	m_BallShape.setPosition(m_Position);
+	m_ball_shape.setRadius(15);
+	m_ball_shape.setFillColor(sf::Color::Green);
+	m_ball_shape.setOutlineThickness(2);
+	m_ball_shape.setOutlineColor(sf::Color::White);
+	m_ball_shape.setPosition(m_position);
 }
 
 sf::FloatRect Ball::getPosition() {
-	return m_BallShape.getGlobalBounds();
+	return m_ball_shape.getGlobalBounds();
 }
 
-sf::RectangleShape Ball::getShape() {
-	return m_BallShape;
+sf::CircleShape Ball::getShape() {
+	return m_ball_shape;
 }
 
 float Ball::getXVelocity() {
-	return m_DirectionX;
+	return m_direction_x;
 }
 
 void Ball::bounceSides() {
-	m_DirectionX = -m_DirectionX;
+	m_direction_x = -m_direction_x;
 }
 
 void Ball::bounceTop() {
-	m_DirectionY = -m_DirectionY;
-}
-
-void Ball::missBottom() {
-	m_Position.x = 1280 / 2;
-	m_Position.y = 0;
+	m_direction_y = -m_direction_y;
 }
 
 void Ball::update(sf::Time dt) {
-	m_Position.x += m_DirectionX * m_Speed * dt.asSeconds();
-	m_Position.y += m_DirectionY * m_Speed * dt.asSeconds();
+	m_position.x += m_direction_x * m_speed * dt.asSeconds();
+	m_position.y += m_direction_y * m_speed * dt.asSeconds();
 	
-	m_BallShape.setPosition(m_Position);
+	m_ball_shape.setPosition(m_position);
 }
 
 void Ball::hitBall() {
-	m_DirectionY = -m_DirectionY;
+	m_direction_y = -m_direction_y;
 }

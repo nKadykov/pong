@@ -135,13 +135,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="ball.cpp" />
+    <ClCompile Include="button.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="gameoverwindow.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Paddle.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="paddle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ball.h" />
-    <ClInclude Include="Paddle.h" />
+    <ClInclude Include="ball.h" />
+    <ClInclude Include="button.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gameoverwindow.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="paddle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,47 +1,53 @@
-#include "Paddle.h"
+#include "paddle.h"
 
 Paddle::Paddle(float startX, float startY) {
-	m_Position.x = startX;
-	m_Position.y = startY;
+	m_position.x = startX;
+	m_position.y = startY;
 
-	m_Shape.setSize(sf::Vector2f(100, 10));
-	m_Shape.setFillColor(sf::Color::Red);
-	m_Shape.setOutlineColor(sf::Color::White);
-	m_Shape.setOutlineThickness(3);
+	m_shape.setSize(sf::Vector2f(100, 12));
+	m_shape.setFillColor(sf::Color::Blue);
+	m_shape.setOutlineColor(sf::Color::White);
+	m_shape.setOutlineThickness(2);
 
-	m_Shape.setPosition(m_Position);
+	m_shape.setPosition(m_position);
 }
 
 sf::FloatRect Paddle::getPosition() {
-	return m_Shape.getGlobalBounds();
+	return m_shape.getGlobalBounds();
 }
 
 sf::RectangleShape Paddle::getShape() {
-	return m_Shape;
+	return m_shape;
 }
 
 void Paddle::moveLeft() {
-	m_MovingLeft = true;
+	m_moving_left = true;
 }
 
 void Paddle::moveRight() {
-	m_MovingRight = true;
+	m_moving_right = true;
 }
 
 void Paddle::stopLeft() {
-	m_MovingLeft = false;
+	m_moving_left = false;
 }
 
 void Paddle::stopRight() {
-	m_MovingRight = false;
+	m_moving_right = false;
 }
 
 void Paddle::update(sf::Time dt) {
-	if (m_MovingLeft) {
-		m_Position.x -= m_Speed * dt.asSeconds();
+	if (m_moving_left) {
+		m_position.x -= m_speed * dt.asSeconds();
 	}
-	if (m_MovingRight) {
-		m_Position.x += m_Speed * dt.asSeconds();
+	if (m_moving_right) {
+		m_position.x += m_speed * dt.asSeconds();
 	}
-	m_Shape.setPosition(m_Position);
+	if (m_position.x < 0) {
+		m_position.x = 0;
+	}
+	if (m_position.x > 1180) {
+		m_position.x = 1180;
+	}
+	m_shape.setPosition(m_position);
 }
