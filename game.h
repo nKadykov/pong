@@ -13,6 +13,12 @@ private:
 	GameState game_state = GameState::ON;
 public:
 	Game();
+	Game(const Game&) = delete;
+	Game(Game&&) = delete;
+	Game& operator=(const Game&) = delete;
+	Game& operator=(Game&&) = delete;
+	~Game() = default;
+
 	void setState(GameState);
 	GameState getState() const;
 

@@ -11,7 +11,13 @@ class Ball
 	float m_direction_y = 1.0f;
 
 public:
+	Ball() = default;
 	Ball(float startX, float startY);
+	Ball(const Ball&) = delete;
+	Ball(Ball&&) = delete;
+	Ball& operator=(const Ball&) = delete;
+	Ball& operator=(Ball&&) = delete;
+	~Ball() = default;
 
 	sf::FloatRect getPosition();
 	sf::CircleShape getShape();

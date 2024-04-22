@@ -11,7 +11,13 @@ class Paddle
 	bool m_moving_right = false;
 
 public:
+	Paddle() = default;
 	Paddle(float startX, float startY);
+	Paddle(const Paddle&) = delete;
+	Paddle(Paddle&&) = delete;
+	Paddle& operator=(const Paddle&) = delete;
+	Paddle& operator=(Paddle&&) = delete;
+	~Paddle() = default;
 
 	sf::RectangleShape getShape();
 	sf::FloatRect getPosition();
