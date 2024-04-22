@@ -14,6 +14,11 @@ GameState Game::getState() const {
 }
 
 void Game::Start(sf::RenderWindow& window) {
+
+    sf::Music music;
+    music.openFromFile("resources/back1.mp3");
+    music.play();
+
     sf::Clock clock;
     sf::Time dt;
     sf::Event event;
