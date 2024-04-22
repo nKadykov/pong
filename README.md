@@ -3,13 +3,13 @@
 Игра Pong, написанная на С++ с использованием библиотеки SFML.
 
 Меню
-![screenshot](Screenshots/Menu.jpg)
+![screenshot](screenshots/Menu.jpg)
 
 Игра
-![screenshot](Screenshots/Game.jpg)
+![screenshot](screenshots/Game.jpg)
 
 Game Over
-![screenshot](Screenshots/GameOver.jpg)
+![screenshot](screenshots/GameOver.jpg)
 
 # Управление
 
