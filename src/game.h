@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "Ball.h"
-#include "Paddle.h"
+#include "ball.h"
+#include "paddle.h"
 
 enum class GameState { ON, LOSE, MENU };
 
