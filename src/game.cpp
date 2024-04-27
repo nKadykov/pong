@@ -1,16 +1,16 @@
 #include "game.h"
 
 Game::Game() {
-    game_texture.loadFromFile("resources/back2.jpg");
-    game_sprite.setTexture(game_texture);
+    m_game_texture.loadFromFile("resources/back2.jpg");
+    m_game_sprite.setTexture(m_game_texture);
 }
 
 void Game::setState(GameState state) {
-    game_state = state;
+    m_game_state = state;
 }
 
 GameState Game::getState() const {
-    return game_state;
+    return m_game_state;
 }
 
 void Game::Start(sf::RenderWindow& window) {
@@ -25,7 +25,7 @@ void Game::Start(sf::RenderWindow& window) {
     Ball my_ball(1280 / 2, 10.0);
     Paddle my_paddle(1280 / 2, 705);
 
-    while (window.isOpen() && game_state == GameState::ON) {
+    while (window.isOpen() && m_game_state == GameState::ON) {
         dt = clock.restart();
 
         if (my_ball.getPosition().intersects(my_paddle.getPosition()) && (my_ball.getPosition().top + my_ball.getPosition().width > my_paddle.getPosition().top)) {
@@ -43,7 +43,7 @@ void Game::Start(sf::RenderWindow& window) {
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)) {
-            game_state = GameState::MENU;
+            m_game_state = GameState::MENU;
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
@@ -69,14 +69,14 @@ void Game::Start(sf::RenderWindow& window) {
         }
 
         if (my_ball.getPosition().top + my_ball.getPosition().height > 720) {
-            game_state = GameState::LOSE;
+            m_game_state = GameState::LOSE;
         }
 
         window.clear();
         my_ball.update(dt);
         my_paddle.update(dt);
 
-        window.draw(game_sprite);
+        window.draw(m_game_sprite);
         window.draw(my_ball.getShape());
         window.draw(my_paddle.getShape());
         window.display();

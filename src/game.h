@@ -9,9 +9,9 @@ enum class GameState { ON, LOSE, MENU };
 class Game
 {
 private:
-	sf::Texture game_texture;
-	sf::Sprite game_sprite;
-	GameState game_state = GameState::ON;
+	sf::Texture m_game_texture;
+	sf::Sprite m_game_sprite;
+	GameState m_game_state = GameState::ON;
 public:
 	Game();
 	Game(const Game&) = delete;
