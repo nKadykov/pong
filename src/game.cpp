@@ -22,14 +22,14 @@ void Game::Start(sf::RenderWindow& window) {
     sf::Clock clock;
     sf::Time dt;
     sf::Event event;
-    Ball my_ball(1280 / 2, 10.0);
-    Paddle my_paddle(1280 / 2, 705);
+    Ball ball(1280 / 2, 10.0);
+    Paddle paddle(1280 / 2, 705);
 
     while (window.isOpen() && m_game_state == GameState::ON) {
         dt = clock.restart();
 
-        if (my_ball.getPosition().intersects(my_paddle.getPosition()) && (my_ball.getPosition().top + my_ball.getPosition().width > my_paddle.getPosition().top)) {
-            my_ball.hitBall();
+        if (ball.getPosition().intersects(paddle.getPosition()) && (ball.getPosition().top + ball.getPosition().width > paddle.getPosition().top)) {
+            ball.hitBall();
         }
 
         while (window.pollEvent(event)) {
@@ -47,38 +47,38 @@ void Game::Start(sf::RenderWindow& window) {
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            my_paddle.moveLeft();
+            paddle.moveLeft();
         }
         else {
-            my_paddle.stopLeft();
+            paddle.stopLeft();
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            my_paddle.moveRight();
+            paddle.moveRight();
         }
         else {
-            my_paddle.stopRight();
+            paddle.stopRight();
         }
 
-        if (my_ball.getPosition().left < 0 || my_ball.getPosition().left + my_ball.getPosition().width > 1280) {
-            my_ball.bounceSides();
+        if (ball.getPosition().left < 0 || ball.getPosition().left + ball.getPosition().width > 1280) {
+            ball.bounceSides();
         }
 
-        if (my_ball.getPosition().top < 0) {
-            my_ball.bounceTop();
+        if (ball.getPosition().top < 0) {
+            ball.bounceTop();
         }
 
-        if (my_ball.getPosition().top + my_ball.getPosition().height > 720) {
+        if (ball.getPosition().top + ball.getPosition().height > 720) {
             m_game_state = GameState::LOSE;
         }
 
         window.clear();
-        my_ball.update(dt);
-        my_paddle.update(dt);
+        ball.update(dt);
+        paddle.update(dt);
 
         window.draw(m_game_sprite);
-        window.draw(my_ball.getShape());
-        window.draw(my_paddle.getShape());
+        window.draw(ball.getShape());
+        window.draw(paddle.getShape());
         window.display();
     }
 }
