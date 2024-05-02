@@ -1,17 +1,17 @@
 #include "menu.h"
 
 Menu::Menu() {
-	m_menu_state = MenuState::ON;
+	m_state = MenuState::ON;
 	m_button_state = ButtonState::NONE;
-	m_menu_texture.loadFromFile("resources/back1.jpg");
-	m_menu_sprite.setTexture(m_menu_texture);
+	m_texture.loadFromFile("resources/back1.jpg");
+	m_sprite.setTexture(m_texture);
 }
 
 Menu::Menu(std::string filename) {
-	m_menu_state = MenuState::OFF;
+	m_state = MenuState::OFF;
 	m_button_state = ButtonState::NONE;
-	m_menu_texture.loadFromFile(filename);
-	m_menu_sprite.setTexture(m_menu_texture);
+	m_texture.loadFromFile(filename);
+	m_sprite.setTexture(m_texture);
 }
 
 Menu::~Menu() {
@@ -30,7 +30,7 @@ ButtonState Menu::getButtonState() const {
 }
 
 MenuState Menu::getState() const {
-	return m_menu_state;
+	return m_state;
 }
 
 void Menu::setButtonState(ButtonState state) {
@@ -38,7 +38,7 @@ void Menu::setButtonState(ButtonState state) {
 }
 
 void Menu::setState(MenuState state) {
-	m_menu_state = state;
+	m_state = state;
 }
 
 void Menu::draw(sf::RenderWindow& window) {
@@ -54,7 +54,7 @@ void Menu::draw(sf::RenderWindow& window) {
 			m_button_state = ButtonState::CLOSE;
 		}
 	}
-	window.draw(m_menu_sprite);
+	window.draw(m_sprite);
 	for (auto it = m_button_vector.begin(); it != m_button_vector.end(); it++) {
 		(*it)->draw(window);
 	}

@@ -10,10 +10,10 @@ class Menu
 {
 private:
 	std::vector<Button*> m_button_vector;
-	sf::Texture m_menu_texture;
-	sf::Sprite m_menu_sprite;
+	sf::Texture m_texture;
+	sf::Sprite m_sprite;
 	ButtonState m_button_state;
-	MenuState m_menu_state;
+	MenuState m_state;
 public:
 	Menu();
 	Menu(std::string);
