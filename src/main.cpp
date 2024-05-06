@@ -16,9 +16,14 @@ int main()
     gameover_texture.loadFromFile("resources/back1.jpg");
     sf::Sprite gameover_texture_sprite(gameover_texture);
 
+    sf::Texture button_texture_1;
+    sf::Texture button_texture_2;
+    button_texture_1.loadFromFile("resources/button2.png");
+    button_texture_2.loadFromFile("resources/button3.png");
+
     Menu menu("resources/back1.jpg");
-    menu.addButton(500, 200, "resources/button2.png");
-    menu.addButton(500, 400, "resources/button3.png");
+    menu.addButton(500, 200, button_texture_1);
+    menu.addButton(500, 400, button_texture_2);
   
     GameOverWindow gameover_window;
     gameover_window.setPosition(300, 200);

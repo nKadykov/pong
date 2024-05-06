@@ -10,10 +10,10 @@ class Menu
 {
 private:
 	std::vector<Button*> m_button_vector;
-	sf::Texture m_texture;
-	sf::Sprite m_sprite;
+	sf::Texture m_menu_texture;
+	sf::Sprite m_menu_sprite;
 	ButtonState m_button_state;
-	MenuState m_state;
+	MenuState m_menu_state;
 public:
 	Menu();
 	Menu(std::string);
@@ -27,6 +27,6 @@ public:
 	MenuState getState() const;
 	void setButtonState(ButtonState);
 	void setState(MenuState);
-	void addButton(int, int, std::string);
+	void addButton(int, int, sf::Texture);
 	void draw(sf::RenderWindow&);
 };
